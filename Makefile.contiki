@@ -18,7 +18,7 @@ else
 		 -DHARD_CODED_ADDRESS=\"aaaa::02:230\"
 endif
 
-CFLAGS += -ffunction-sections
+CFLAGS += -ffunction-sections -fdata-sections
 LDFLAGS += -Wl,--gc-sections,--undefined=_reset_vector__,--undefined=InterruptVectors,--undefined=_copy_data_init__,--undefined=_clear_bss_init__,--undefined=_end_of_init__
 
 CFLAGS += -DUIP_CONF_TCP=0 -DSHA2_USE_INTTYPES_H
