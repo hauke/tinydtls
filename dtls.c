@@ -3917,7 +3917,7 @@ PROCESS_THREAD(dtls_retransmit_process, ev, data)
 	/* need to set timer to some value even if no nextpdu is available */
 	if (node) {
 	  etimer_set(&the_dtls_context.retransmit_timer, 
-		     node->t <= now ? 1 : node->t - now);
+		     node->t <= now ? 5 : node->t - now);
 	} else {
 	  etimer_set(&the_dtls_context.retransmit_timer, 0xFFFF);
 	}
