@@ -170,7 +170,7 @@ dsrv_print_addr(const session_t *addr, char *buf, size_t len) {
   char *p = buf;
   uint8_t i;
 #  if WITH_UIP6
-  const char hex[] = "0123456789ABCDEF";
+  static const char hex[] = "0123456789ABCDEF";
 
   if (len < 41)
     return 0;

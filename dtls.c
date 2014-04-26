@@ -572,6 +572,17 @@ static char *dtls_handshake_type_to_name(int type)
   }
 }
 
+
+static void dtls_print_ms(uint8 *cr, size_t cr_len, uint8 *ms, size_t ms_len)
+{
+  printf("CLIENT_RANDOM ");
+  dump(cr, cr_len);
+  printf(" ");
+  dump(ms, ms_len);
+  printf("\n");
+}
+
+
 /**
  * Calculate the pre master secret and after that calculate the master-secret.
  */
@@ -650,6 +661,7 @@ calculate_key_block(dtls_context_t *ctx,
 
   dtls_debug_dump("master_secret", master_secret, DTLS_MASTER_SECRET_LENGTH);
 
+  dtls_print_ms(handshake->tmp.random.client, DTLS_RANDOM_LENGTH, master_secret, DTLS_MASTER_SECRET_LENGTH);
   /* create key_block from master_secret
    * key_block = PRF(master_secret,
                     "key expansion" + tmp.random.server + tmp.random.client) */

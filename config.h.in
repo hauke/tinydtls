@@ -3,6 +3,12 @@
 /* Define if building universal (internal helper macro) */
 #undef AC_APPLE_UNIVERSAL_BUILD
 
+/* Define to 1 if building with ECC support. */
+#undef DTLS_ECC
+
+/* Define to 1 if building with PSK support */
+#undef DTLS_PSK
+
 /* Define to 1 if you have the <arpa/inet.h> header file. */
 #undef HAVE_ARPA_INET_H
 
@@ -132,6 +138,6 @@
 
 /* Define to rpl_malloc if the replacement function should be used. */
 #undef malloc
-/* Define to `unsigned int' if <sys/types.h> does not define. */
 
+/* Define to `unsigned int' if <sys/types.h> does not define. */
 #undef size_t
